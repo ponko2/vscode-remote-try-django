@@ -8,5 +8,9 @@ dependencies = []
 
 [dependency-groups]
 dev = [
+    "mypy>=1.15.0",
     "ruff>=0.9.7",
 ]
+
+[tool.mypy]
+strict = true
