@@ -4,6 +4,9 @@
   "editor.formatOnType": true,
   "python.analysis.autoImportCompletions": true,
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "[css][json][jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
