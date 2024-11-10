@@ -4,13 +4,18 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "django>=5.1.6",
+    "django-stubs-ext>=5.1.3",
+]
 
 [dependency-groups]
 dev = [
-    "mypy>=1.15.0",
+    "django-stubs[compatible-mypy]>=5.1.3",
     "ruff>=0.11.0",
 ]
+
+[tool.django-stubs]
 
 [tool.mypy]
 
@@ -26,6 +31,11 @@ warn_unused_ignores = true
 
 # Miscellaneous strictness flags
 strict = true
+
+# Advanced options
+plugins = [
+    "mypy_django_plugin.main",
+]
 
 # Miscellaneous
 warn_unused_configs = true
