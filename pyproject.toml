@@ -5,3 +5,61 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.0",
+]
+
+[tool.ruff.format]
+preview = true
+
+[tool.ruff.lint]
+ignore = [
+    "ANN401",
+    "ARG",
+    "COM812",
+    "CPY",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "D203",
+    "D212",
+    "D404",
+    "D417",
+    "DJ008",
+    "DOC",
+    "E501",
+    "RUF012",
+    "T20",
+    "TD001",
+    "TD002",
+    "TD003",
+    "UP006",
+    "UP035",
+]
+preview = true
+select = ["ALL"]
+
+[tool.ruff.lint.flake8-builtins]
+ignorelist = [
+    "list",
+]
+
+[tool.ruff.lint.flake8-self]
+extend-ignore-names = [
+    "_base_manager",
+    "_default_manager",
+    "_meta",
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
