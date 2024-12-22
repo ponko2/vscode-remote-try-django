@@ -10,7 +10,7 @@ from snippets.serializers import SnippetSerializer
 
 
 @api_view(["GET", "POST"])
-def snippet_list(request: Request) -> Response:
+def snippet_list(request: Request, format=None) -> Response:  # type: ignore[no-untyped-def]
     """
     List all code snippets, or create a new snippet.
     """
@@ -30,7 +30,7 @@ def snippet_list(request: Request) -> Response:
 
 
 @api_view(["GET", "PUT", "DELETE"])
-def snippet_detail(request: Request, pk: Any) -> Response:
+def snippet_detail(request: Request, pk: Any, format=None) -> Response:  # type: ignore[no-untyped-def]
     """
     Retrieve, update or delete a code snippet.
     """
