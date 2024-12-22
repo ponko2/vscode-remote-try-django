@@ -1,7 +1,7 @@
-from typing import Optional
+from typing import Any, Optional
 
 from django.contrib.auth.models import User
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, renderers
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -36,6 +36,15 @@ class SnippetDetail(generics.RetrieveUpdateDestroyAPIView[Snippet]):
     queryset = Snippet._default_manager.all()
     serializer_class = SnippetSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+
+class SnippetHighlight(generics.GenericAPIView[Snippet]):
+    queryset = Snippet._default_manager.all()
+    renderer_classes = [renderers.StaticHTMLRenderer]
+
+    def get(self, request: Request, *args: Any, **kwargs: Any) -> Response:
+        snippet = self.get_object()
+        return Response(snippet.highlighted)
 
 
 class UserList(generics.ListAPIView[User]):
