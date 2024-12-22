@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -10,7 +10,7 @@ from snippets.serializers import SnippetSerializer
 
 
 @api_view(["GET", "POST"])
-def snippet_list(request: Request) -> Response:
+def snippet_list(request: Request, format: Optional[str] = None) -> Response:
     """
     List all code snippets, or create a new snippet.
     """
@@ -30,7 +30,7 @@ def snippet_list(request: Request) -> Response:
 
 
 @api_view(["GET", "PUT", "DELETE"])
-def snippet_detail(request: Request, pk: Any) -> Response:
+def snippet_detail(request: Request, pk: Any, format: Optional[str] = None) -> Response:
     """
     Retrieve, update or delete a code snippet.
     """
