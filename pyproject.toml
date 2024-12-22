@@ -20,6 +20,7 @@ dev = [
 ]
 
 [tool.django-stubs]
+django_settings_module = "tutorial.settings"
 
 [tool.mypy]
 
