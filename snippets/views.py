@@ -26,6 +26,21 @@ class SnippetViewSet(viewsets.ModelViewSet[Snippet]):
     @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def highlight(self, request: Request, *args: Any, **kwargs: Any) -> Response:
         snippet = self.get_object()
+        print(f"id = {snippet.id}")
+        print(f"pk = {snippet.pk}")
+        print(f"foo_id = {snippet.foo_id}")
+        if snippet.foo is not None:
+            print(f"foo.id = {snippet.foo.id}")
+            print(f"foo.pk = {snippet.foo.pk}")
+            print(f"foo.value = {snippet.foo.value}")
+        if hasattr(snippet, "bar") and snippet.bar is not None:
+            # print(f"bar.id = {snippet.bar.id}")  # Error: "Bar" has no attribute "id"  # noqa: ERA001
+            print(f"bar.pk = {snippet.bar.pk}")
+            print(f"bar.value = {snippet.bar.value}")
+        for baz in snippet.bazs.all():
+            print(f"baz.id = {baz.id}")
+            print(f"baz.pk = {baz.pk}")
+            print(f"baz.value = {baz.value}")
         return Response(snippet.highlighted)
 
     def perform_create(self, serializer: BaseSerializer[Snippet]) -> None:

@@ -12,6 +12,13 @@ LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
 STYLE_CHOICES = sorted([(item, item) for item in get_all_styles()])
 
 
+class Foo(models.Model):
+    value = models.TextField()
+
+    class Meta(TypedModelMeta):
+        ordering = ["value"]
+
+
 class Snippet(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True, default="")
@@ -25,6 +32,12 @@ class Snippet(models.Model):
         "auth.User", related_name="snippets", on_delete=models.CASCADE
     )
     highlighted = models.TextField()
+    foo = models.ForeignKey(
+        Foo,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="snippets",
+    )
 
     class Meta(TypedModelMeta):
         ordering = ["created"]
@@ -44,3 +57,29 @@ class Snippet(models.Model):
         )
         self.highlighted = highlight(self.code, lexer, formatter)
         super().save(*args, **kwargs)
+
+
+class Bar(models.Model):
+    value = models.TextField()
+    snippet = models.OneToOneField(
+        Snippet,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        related_name="bar",
+    )
+
+    class Meta(TypedModelMeta):
+        ordering = ["value"]
+
+
+class Baz(models.Model):
+    value = models.TextField()
+    snippet = models.ForeignKey(
+        Snippet,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="bazs",
+    )
+
+    class Meta(TypedModelMeta):
+        ordering = ["value"]
