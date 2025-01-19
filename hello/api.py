@@ -5,5 +5,5 @@ router = Router()
 
 
 @router.get("")
-def hello(request: HttpRequest) -> str:
-    return "Hello world"
+def hello(request: HttpRequest, name: str = "world") -> str:
+    return f"Hello {name}"
