@@ -1,9 +1,13 @@
 from django.http import HttpRequest
-from ninja import Router
+from ninja import Router, Schema
 
 router = Router()
 
 
-@router.get("")
-def hello(request: HttpRequest, name: str = "world") -> str:
-    return f"Hello {name}"
+class HelloSchema(Schema):
+    name: str = "world"
+
+
+@router.post("")
+def hello(request: HttpRequest, data: HelloSchema) -> str:
+    return f"Hello {data.name}"
