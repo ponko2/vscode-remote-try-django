@@ -36,7 +36,11 @@ updates:
       timezone: Asia/Tokyo
     open-pull-requests-limit: 10
     groups:
-      django-stubs:
+      django:
         patterns:
+          - django
+          - django-ninja
           - django-stubs
           - django-stubs-ext
+          - djangorestframework
+          - djangorestframework-stubs
