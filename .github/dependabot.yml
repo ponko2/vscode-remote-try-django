@@ -35,3 +35,8 @@ updates:
       time: "07:00"
       timezone: Asia/Tokyo
     open-pull-requests-limit: 10
+    groups:
+      django-stubs:
+        patterns:
+          - django-stubs
+          - django-stubs-ext
