@@ -126,7 +126,7 @@ wheels = [
 
 [[package]]
 name = "djangorestframework-stubs"
-version = "3.15.3"
+version = "3.16.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django-stubs" },
@@ -135,9 +135,9 @@ dependencies = [
     { name = "types-requests" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c1/08/e86db66dbed67bd4e70dc7d059b338ad1a0cadfd15314ad09c554c31fb83/djangorestframework_stubs-3.15.3.tar.gz", hash = "sha256:e7bdec722d98b8a8049bad9f8bb5ead0931f4f64010ffb3c4538c9ae0f35ef2a", size = 34818, upload-time = "2025-02-21T14:47:36.303Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/47/2b/45a1c9ccb7c4a1f79112a2b4b65a1abd3ee9d4ed1a80d21736bd8f999750/djangorestframework_stubs-3.16.0.tar.gz", hash = "sha256:8c5ccdfe9271b1a37946a3564dc3714d521cd3f2f8695e528808e0c700538243", size = 34818, upload-time = "2025-04-27T12:19:22.706Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/58/3f/4d2233e7a6eb5617f377b9cb943c2f6482a2671bdb3b134b955e78b2b946/djangorestframework_stubs-3.15.3-py3-none-any.whl", hash = "sha256:3add29ac343292ffc926a3f3984af42de237cca214c69ca0489d124315a803bc", size = 54609, upload-time = "2025-02-21T14:47:34.295Z" },
+    { url = "https://files.pythonhosted.org/packages/23/f8/50be82c084173adb95f2a925f6336aa53b97ea7ce6fe1dc943ddc20b1193/djangorestframework_stubs-3.16.0-py3-none-any.whl", hash = "sha256:2085a6e023de65843d4d53fe5abc73fbbc3ef380a59919ad9801182f6bb435de", size = 54703, upload-time = "2025-04-27T12:19:18.098Z" },
 ]
 
 [package.optional-dependencies]
@@ -397,7 +397,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "django-stubs", extras = ["compatible-mypy"], specifier = ">=5.2.0" },
-    { name = "djangorestframework-stubs", extras = ["compatible-mypy"], specifier = ">=3.15.3" },
+    { name = "djangorestframework-stubs", extras = ["compatible-mypy"], specifier = ">=3.16.0" },
     { name = "ruff", specifier = ">=0.11.10" },
     { name = "types-pygments", specifier = ">=2.19.0.20250516" },
 ]
