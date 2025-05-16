@@ -387,7 +387,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "django", specifier = ">=5.1.6" },
+    { name = "django", specifier = ">=5.2.1" },
     { name = "django-ninja", specifier = ">=1.4.1" },
     { name = "django-stubs-ext", specifier = ">=5.2.0" },
     { name = "djangorestframework", specifier = ">=3.16.0" },
