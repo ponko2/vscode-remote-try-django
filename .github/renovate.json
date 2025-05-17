@@ -1,8 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
+  "extends": [
+    "config:best-practices",
+    ":automergePatch",
+    ":disableRateLimiting",
+    ":gitSignOff"
+  ],
   "labels": ["dependencies"],
   "packageRules": [
+    {
+      "groupName": "django packages",
+      "matchDatasources": ["pypi"],
+      "matchPackageNames": [
+        "django",
+        "django-ninja",
+        "django-stubs",
+        "django-stubs-ext",
+        "djangorestframework",
+        "djangorestframework-stubs"
+      ]
+    },
     {
       "matchManagers": ["github-actions"],
       "addLabels": ["github_actions"]
