@@ -4,7 +4,8 @@
     "config:best-practices",
     ":automergePatch",
     ":disableRateLimiting",
-    ":gitSignOff"
+    ":gitSignOff",
+    ":semanticCommits"
   ],
   "labels": ["dependencies"],
   "packageRules": [
@@ -22,7 +23,9 @@
     },
     {
       "matchManagers": ["github-actions"],
-      "addLabels": ["github_actions"]
+      "minimumReleaseAge": "3 days",
+      "addLabels": ["github_actions"],
+      "automerge": false
     }
   ],
   "rangeStrategy": "bump",
