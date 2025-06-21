@@ -9,7 +9,7 @@ dependencies = [
     "django-ninja>=1.4.3",
     "django-stubs-ext>=5.2.1",
     "djangorestframework>=3.16.0",
-    "pygments>=2.19.1",
+    "pygments>=2.19.2",
 ]
 
 [dependency-groups]
