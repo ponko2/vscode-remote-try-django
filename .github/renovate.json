@@ -26,13 +26,6 @@
   },
   "packageRules": [
     {
-      "groupName": "biome packages",
-      "matchSourceUrls": [
-        "https://github.com/biomejs/biome",
-        "https://github.com/biomejs/setup-biome"
-      ]
-    },
-    {
       "groupName": "django packages",
       "matchDatasources": ["pypi"],
       "matchPackageNames": [
