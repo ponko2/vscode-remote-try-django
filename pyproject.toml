@@ -17,7 +17,7 @@ dev = [
     "django-stubs[compatible-mypy]>=5.2.2",
     "djangorestframework-stubs[compatible-mypy]>=3.16.1",
     "ruff>=0.12.8",
-    "types-pygments>=2.19.0.20250715",
+    "types-pygments>=2.19.0.20250809",
 ]
 
 [tool.django-stubs]
