@@ -16,7 +16,7 @@ dependencies = [
 dev = [
     "django-stubs[compatible-mypy]>=5.2.2",
     "djangorestframework-stubs[compatible-mypy]>=3.16.2",
-    "ruff>=0.12.8",
+    "ruff>=0.12.9",
     "types-pygments>=2.19.0.20250809",
 ]
 
