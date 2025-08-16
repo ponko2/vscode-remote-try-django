@@ -27,6 +27,10 @@
   },
   "packageRules": [
     {
+      "matchDepTypes": ["requires-python"],
+      "rangeStrategy": "replace"
+    },
+    {
       "groupName": "django packages",
       "matchDatasources": ["pypi"],
       "matchPackageNames": [
