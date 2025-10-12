@@ -414,14 +414,14 @@ dev = [
 requires-dist = [
     { name = "django", specifier = ">=5.2.7" },
     { name = "django-ninja", specifier = ">=1.4.3" },
-    { name = "django-stubs-ext", specifier = ">=5.2.6" },
+    { name = "django-stubs-ext", specifier = ">=5.2.7" },
     { name = "djangorestframework", specifier = ">=3.16.1" },
     { name = "pygments", specifier = ">=2.19.2" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "django-stubs", extras = ["compatible-mypy"], specifier = ">=5.2.6" },
+    { name = "django-stubs", extras = ["compatible-mypy"], specifier = ">=5.2.7" },
     { name = "djangorestframework-stubs", extras = ["compatible-mypy"], specifier = ">=3.16.4" },
     { name = "ruff", specifier = ">=0.13.3" },
     { name = "types-pygments", specifier = ">=2.19.0.20250809" },
