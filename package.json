@@ -2,7 +2,7 @@
   "name": "vscode-remote-try-django",
   "version": "0.1.0",
   "devDependencies": {
-    "@biomejs/biome": "2.2.6"
+    "@biomejs/biome": "2.2.7"
   },
   "packageManager": "pnpm@10.19.0",
   "private": true,
