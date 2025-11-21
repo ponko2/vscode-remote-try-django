@@ -76,16 +76,9 @@ ignore = [
     "TD001",
     "TD002",
     "TD003",
-    "UP006",
-    "UP035",
 ]
 preview = true
 select = ["ALL"]
-
-[tool.ruff.lint.flake8-builtins]
-ignorelist = [
-    "list",
-]
 
 [tool.ruff.lint.flake8-self]
 extend-ignore-names = [
