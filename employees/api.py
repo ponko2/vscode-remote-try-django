@@ -1,9 +1,10 @@
 from datetime import date
-from typing import Any, List
 
+from django.db.models.query import QuerySet
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404
 from ninja import Router, Schema
+from pydantic import ConfigDict
 
 from employees.models import Employee
 
@@ -16,9 +17,10 @@ def to_lower_camel_case(string: str) -> str:
 
 
 class BaseSchema(Schema):
-    class Config(Schema.Config):
-        alias_generator = to_lower_camel_case
-        populate_by_name = True
+    model_config = ConfigDict(
+        alias_generator=to_lower_camel_case,
+        populate_by_name=True,
+    )
 
 
 class EmployeeIn(BaseSchema):
@@ -36,24 +38,24 @@ class EmployeeOut(BaseSchema):
     birthdate: date | None = None
 
 
-@router.get("", response=List[EmployeeOut], by_alias=True)
-def list(request: HttpRequest) -> Any:
+@router.get("", response=list[EmployeeOut], by_alias=True)
+def list_employees(request: HttpRequest) -> QuerySet[Employee]:
     return Employee.objects.all()
 
 
 @router.post("")
-def create(request: HttpRequest, payload: EmployeeIn) -> dict[str, int]:
+def create_employee(request: HttpRequest, payload: EmployeeIn) -> dict[str, int]:
     employee = Employee.objects.create(**payload.dict())
     return {"id": employee.id}
 
 
 @router.get("/{employee_id}", response=EmployeeOut, by_alias=True)
-def retrieve(request: HttpRequest, employee_id: int) -> Any:
+def get_employee(request: HttpRequest, employee_id: int) -> Employee:
     return get_object_or_404(Employee, id=employee_id)
 
 
 @router.put("/{employee_id}")
-def update(
+def update_employee(
     request: HttpRequest,
     employee_id: int,
     payload: EmployeeIn,
@@ -66,7 +68,7 @@ def update(
 
 
 @router.delete("/{employee_id}")
-def destroy(request: HttpRequest, employee_id: int) -> dict[str, bool]:
+def delete_employee(request: HttpRequest, employee_id: int) -> dict[str, bool]:
     employee = get_object_or_404(Employee, id=employee_id)
     employee.delete()
     return {"success": True}
