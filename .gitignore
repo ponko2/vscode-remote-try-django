@@ -9,6 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
+# direnv
+.direnv/
+
 # mypy
 .mypy_cache/
 
