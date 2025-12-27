@@ -10,7 +10,7 @@ rules:
   document-start:
     ignore: |
       .github/
-      .pre-commit-config.yaml
+      lefthook.yml
       pnpm-workspace.yaml
     level: error
   line-length: disable
