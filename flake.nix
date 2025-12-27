@@ -31,7 +31,6 @@
             packages = with pkgs; [
               nodejs
               pnpm
-              pre-commit
               uv
             ];
           };

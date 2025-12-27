@@ -174,6 +174,15 @@ wheels = [
 ]
 
 [[package]]
+name = "lefthook"
+version = "2.0.13"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a8/34/a0554eef121b1a9470999fccb0fe5734448525018d9bc83886369cc0c152/lefthook-2.0.13.tar.gz", hash = "sha256:6c9598dc15e3cd8957186068ccea1c5ecb36695a15ae380322c479ae7416d25d", size = 51613560, upload-time = "2025-12-26T07:16:07.716Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/97/c2/8c826d123f52679002cc3c223ea076fd0154cbd1f2987edacb6e7f38b6d6/lefthook-2.0.13-py3-none-any.whl", hash = "sha256:431347c01d58789436b4bb69a5b5e190aecf89dd1e786a434f3e4670b93d9504", size = 51862775, upload-time = "2025-12-26T07:16:04.515Z" },
+]
+
+[[package]]
 name = "librt"
 version = "0.7.4"
 source = { registry = "https://pypi.org/simple" }
@@ -483,6 +492,7 @@ dependencies = [
 dev = [
     { name = "django-stubs", extra = ["compatible-mypy"] },
     { name = "djangorestframework-stubs", extra = ["compatible-mypy"] },
+    { name = "lefthook" },
     { name = "ruff" },
     { name = "types-pygments" },
 ]
@@ -500,6 +510,7 @@ requires-dist = [
 dev = [
     { name = "django-stubs", extras = ["compatible-mypy"], specifier = ">=5.2.8" },
     { name = "djangorestframework-stubs", extras = ["compatible-mypy"], specifier = ">=3.16.6" },
+    { name = "lefthook", specifier = ">=2.0.13" },
     { name = "ruff", specifier = ">=0.14.10" },
     { name = "types-pygments", specifier = ">=2.19.0.20251121" },
 ]

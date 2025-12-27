@@ -10,10 +10,10 @@ Install the dependencies:
 uv sync
 ```
 
-Install the pre-commit script:
+Install the lefthook script:
 
 ```sh
-uvx pre-commit install
+uv run -m lefthook install
 ```
 
 ### Development

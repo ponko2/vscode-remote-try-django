@@ -9,11 +9,6 @@
   },
   "mounts": [
     {
-      "source": "devcontainer-pre-commit-cache-${devcontainerId}",
-      "target": "/home/vscode/.cache/pre-commit",
-      "type": "volume"
-    },
-    {
       "source": "devcontainer-uv-cache-${devcontainerId}",
       "target": "/home/vscode/.cache/uv",
       "type": "volume"
