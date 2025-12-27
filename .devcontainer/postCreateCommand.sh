@@ -10,5 +10,3 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 uv sync
 uv run manage.py migrate
-
-uvx pre-commit install

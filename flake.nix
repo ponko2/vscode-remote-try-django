@@ -29,10 +29,11 @@
         {
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
+              editorconfig-checker
               nodejs
               pnpm
-              pre-commit
               uv
+              yamllint
             ];
           };
           formatter = pkgs.nixfmt-tree;
