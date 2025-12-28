@@ -1,4 +1,4 @@
-from django.contrib.auth.models import _AnyUser
+from django.contrib.auth.base_user import AbstractBaseUser
 from django.http import HttpRequest
 from ninja import Router, Schema
 
@@ -17,7 +17,7 @@ class Error(Schema):
 
 
 @router.get("", response={200: UserSchema, 403: Error})
-def me(request: HttpRequest) -> _AnyUser | tuple[int, dict[str, str]]:
+def me(request: HttpRequest) -> AbstractBaseUser | tuple[int, dict[str, str]]:
     if not request.user.is_authenticated:
         return 403, {"message": "Please sign in first"}
     return request.user

@@ -3,7 +3,9 @@
 {
   "name": "Debian",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "containerEnv": {
     "UV_LINK_MODE": "copy"
   },
@@ -16,7 +18,11 @@
   ],
 
   // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
+  "features": {
+    "ghcr.io/devcontainers/features/nix:1": {
+      "extraNixConfig": "experimental-features = nix-command flakes"
+    }
+  },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
@@ -37,6 +43,8 @@
         "VisualStudioExptTeam.vscodeintellicode",
         "biomejs.biome",
         "charliermarsh.ruff",
+        "jnoortheen.nix-ide",
+        "mkhl.direnv",
         "ms-python.mypy-type-checker",
         "ms-python.python"
       ]

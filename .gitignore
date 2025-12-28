@@ -22,4 +22,5 @@ wheels/
 db.sqlite3
 
 # Node.js
+.pnpm-store/
 node_modules/
