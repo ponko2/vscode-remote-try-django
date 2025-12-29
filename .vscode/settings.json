@@ -11,6 +11,9 @@
   "mypy-type-checker.importStrategy": "fromEnvironment",
   "python.analysis.autoImportCompletions": true,
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   }

@@ -2,11 +2,12 @@
 
 set -euo pipefail
 
-git config --global --add safe.directory /workspaces/vscode-remote-try-django
-
 sudo chown -R "$(whoami):" /home/vscode/.cache
 
-curl -LsSf https://astral.sh/uv/install.sh | sh
+nix profile add nixpkgs#nix-direnv
+mkdir -p ~/.config/direnv
+echo "source ~/.nix-profile/share/nix-direnv/direnvrc" >> ~/.config/direnv/direnvrc
 
-uv sync
-uv run manage.py migrate
+nix develop --command uv run manage.py migrate
+
+direnv allow
