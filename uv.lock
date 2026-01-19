@@ -425,6 +425,6 @@ requires-dist = [
 dev = [
     { name = "django-stubs", extras = ["compatible-mypy"], specifier = ">=5.2.8" },
     { name = "djangorestframework-stubs", extras = ["compatible-mypy"], specifier = ">=3.16.7" },
-    { name = "ruff", specifier = ">=0.14.12" },
+    { name = "ruff", specifier = ">=0.14.13" },
     { name = "types-pygments", specifier = ">=2.19.0.20251121" },
 ]
