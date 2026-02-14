@@ -14,7 +14,7 @@
       "onFail": "download"
     }
   },
-  "packageManager": "pnpm@10.29.2",
+  "packageManager": "pnpm@10.29.3",
   "private": true,
   "scripts": {},
   "type": "module"
