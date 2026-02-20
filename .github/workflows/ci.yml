@@ -19,10 +19,10 @@ jobs:
       - actionlint
       - ghalint
       - zizmor
-      - biome
       - commitlint
       - editorconfig
       - mypy
+      - oxfmt
       - ruff
       - yamllint
     runs-on: ubuntu-slim
@@ -53,7 +53,6 @@ jobs:
     outputs:
       # reference: https://github.com/tj-actions/changed-files#outputs-
       actions: ${{ steps.changed-files.outputs.actions_any_modified == 'true' }}
-      biome: ${{ steps.changed-files.outputs.biome_any_modified == 'true' }}
       python: ${{ steps.changed-files.outputs.python_any_modified == 'true' }}
       yamllint: ${{ steps.changed-files.outputs.yamllint_any_modified == 'true' }}
     steps:
@@ -76,9 +75,6 @@ jobs:
             actions:
               - "**/action.{yaml,yml}"
               - ".github/workflows/*.{yaml,yml}"
-            biome:
-              - *common
-              - "**/*.{js,jsx,ts,tsx,cjs,cts,mjs,mts,json,jsonc,css,svelte,vue,astro,graphql,gql}"
             python:
               - *common
               - *dependencies
@@ -134,24 +130,6 @@ jobs:
           persist-credentials: false
       - name: Run zizmor
         uses: ponko2/actions/zizmor@957f0cbafbd663effe5868464cbea63d7aca5067 # v1.3.1
-  biome:
-    name: Biome
-    if: ${{ always() && !failure() && !cancelled() &&
-      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.biome == 'true') }}
-    needs: changed-files
-    runs-on: ubuntu-slim
-    timeout-minutes: 60
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
-      - name: Set up Biome
-        uses: biomejs/setup-biome@29711cbb52afee00eb13aeb30636592f9edc0088 # v2.7.0
-      - name: Run Biome
-        run: biome ci --error-on-warnings
   commitlint:
     name: commitlint
     if: ${{ github.event_name == 'pull_request' }}
@@ -218,6 +196,28 @@ jobs:
         run: uv sync
       - name: Run mypy
         run: uv run -m mypy .
+  oxfmt:
+    name: Oxfmt
+    needs: verify-author
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Set up pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+      - name: Set up Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run Oxfmt
+        run: pnpm exec oxfmt --check
   ruff:
     name: Ruff
     if: ${{ always() && !failure() && !cancelled() &&
