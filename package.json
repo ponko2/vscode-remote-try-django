@@ -11,7 +11,7 @@
     "@commitlint/cli": "20.4.2",
     "@commitlint/config-conventional": "20.4.2",
     "lefthook": "2.1.1",
-    "oxfmt": "0.33.0"
+    "oxfmt": "0.34.0"
   },
   "devEngines": {
     "runtime": {
