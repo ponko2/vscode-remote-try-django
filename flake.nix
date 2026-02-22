@@ -36,6 +36,7 @@
             shellHook = ''
               pnpm install
               uv sync --all-extras --locked
+              export PATH="$PWD/node_modules/.bin:$PATH"
             '';
           };
           formatter = pkgs.nixfmt-tree;
