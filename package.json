@@ -8,8 +8,8 @@
     "lint": "oxfmt --check"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.4.3",
-    "@commitlint/config-conventional": "20.4.3",
+    "@commitlint/cli": "20.4.4",
+    "@commitlint/config-conventional": "20.4.4",
     "lefthook": "2.1.3",
     "oxfmt": "0.38.0"
   },
